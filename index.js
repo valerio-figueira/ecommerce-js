@@ -92,7 +92,7 @@ function openDetails(product){
         <p class="label">${product.label}</p>
         <h2 class="title">${product.name}</h2>
         <p class="price">$${Number(product.price).toFixed(2)}</p>
-        <input type="number" class="quantity" min="1">
+        <input type="number" class="quantity" min="1" value="${product.quantity}">
         <button>Add to Cart</button>
         <h3 class="details">Product Details</h3>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?</p>
@@ -103,7 +103,20 @@ function openDetails(product){
     const btn = document.querySelector('.more-detail .close-btn');
     btn.addEventListener('click', () => {
         conditionalClassTag(tag);
-    })
+    });
+
+    const mainImage = document.querySelectorAll('.more-detail img')[0];
+    const images = document.querySelectorAll('.more-detail .flex-row img');
+
+    // changes the main image
+    images.forEach(image => {
+        image.addEventListener('click', () => {
+            mainImage.setAttribute('src', image.getAttribute('src'));
+        });
+    });
+
+    // quantity controller
+    quantityController(product);
 };
 
 function conditionalClassTag(tag){
@@ -119,6 +132,35 @@ function conditionalClassTag(tag){
         mainTag.classList.remove('height-adjust');
     }
 }
+
+
+
+
+
+function quantityController(product){
+    const productTag = document.querySelector('.more-detail');
+    const quantityTag = document.querySelector('.more-detail .quantity');
+
+
+    quantityTag.addEventListener('change', (e) => {
+        if(quantityTag.value == 0){
+            quantityTag.value = 1;
+        } else{
+            product.quantity = e.target.value;
+            refreshProductPrice(product);
+            console.log(product.quantity)
+        }
+    })
+}
+
+function refreshProductPrice(product){
+    const priceTag = document.querySelector('.more-detail .price');
+
+    product.total = product.quantity * product.price;
+    priceTag.innerHTML = product.total;
+}
+
+
 
 
 footerTag()

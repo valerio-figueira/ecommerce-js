@@ -11,6 +11,8 @@ const products = [
             "imgs/products/f5.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -25,6 +27,8 @@ const products = [
             "imgs/products/f6.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -39,6 +43,8 @@ const products = [
             "imgs/products/f7.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -53,6 +59,8 @@ const products = [
             "imgs/products/f8.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -67,6 +75,8 @@ const products = [
             "imgs/products/f1.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -81,6 +91,8 @@ const products = [
             "imgs/products/f2.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -95,6 +107,8 @@ const products = [
             "imgs/products/f3.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -109,6 +123,8 @@ const products = [
             "imgs/products/f4.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -123,6 +139,8 @@ const products = [
             "imgs/products/n5.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -137,6 +155,8 @@ const products = [
             "imgs/products/n6.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -151,6 +171,8 @@ const products = [
             "imgs/products/n7.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -165,6 +187,8 @@ const products = [
             "imgs/products/n8.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -179,6 +203,8 @@ const products = [
             "imgs/products/n1.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -193,6 +219,8 @@ const products = [
             "imgs/products/n2.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -207,6 +235,8 @@ const products = [
             "imgs/products/n3.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
     {
@@ -221,6 +251,8 @@ const products = [
             "imgs/products/n4.jpg"
         ],
         price: 78,
+        quantity: 1,
+        total: 78,
         url: "#"
     },
 ];
