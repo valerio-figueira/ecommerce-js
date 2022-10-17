@@ -67,6 +67,7 @@ function renderShopProducts(){
             openDetails(object);
         });
     });
+    addItemsToCheckout();
 };
 
 function convertTagIntoObject(productTag){
@@ -130,34 +131,98 @@ function conditionalClassTag(tag){
         tag.classList.add('closed');
         tag.classList.remove('absolute');
         mainTag.classList.remove('height-adjust');
-    }
+    };
+};
+
+
+function addItemsToCheckout(){
+    const productsTag = document.querySelectorAll('.shop-content .product');
+    const checkoutBox = document.querySelector('.checkout .checkout-items');
+
+    productsTag.forEach(product => {
+        product.addEventListener('click', () => {
+            const productObject = convertTagIntoObject(product);
+            checkoutBox.innerHTML = getCheckoutItemHtml(productObject)
+            checkoutController();
+        });
+    });
+};
+
+function checkoutController(){
+    const checkoutProducts = document.querySelectorAll('.checkout-product');
+
+    checkoutProducts.forEach(product => {
+        const productObject = convertTagIntoObject(product);
+        console.log(product, productObject)
+        product.addEventListener('change', (e) => {
+            if(e.target.matches('.quantity')){
+                quantityController(productObject);
+            };
+        });
+    });
+};
+
+function getCheckoutItemHtml(productObject, tag){
+    return `
+        <div class="checkout-product" id="${productObject.id}">
+            <h3>${productObject.name}</h3>
+            <img src="${productObject.img[0]}" class="">
+            <input type="number" min="1" value="${productObject.quantity}" required class="quantity">
+            <p class="product-price">Price: <span>$${Number(productObject.price).toFixed(2)}</span></p>
+        </div>
+    `;
 }
-
-
 
 
 
 function quantityController(product){
     const productTag = document.querySelector('.more-detail');
-    const quantityTag = document.querySelector('.more-detail .quantity');
+    const quantityTag = document.querySelectorAll('.quantity');
+
+    quantityTag.forEach(tag => {
+        console.log(tag)
+        tag.addEventListener('change', (e) => {
+            if(quantityTag.value == 0){
+                quantityTag.value = 1;
+            } else{
+                product.quantity = e.target.value;
+                refreshProductPrice(product);
+                console.log(product.quantity)
+            };
+        });
+    });
+};
 
 
-    quantityTag.addEventListener('change', (e) => {
-        if(quantityTag.value == 0){
-            quantityTag.value = 1;
-        } else{
-            product.quantity = e.target.value;
-            refreshProductPrice(product);
-            console.log(product.quantity)
-        }
-    })
-}
 
 function refreshProductPrice(product){
     const priceTag = document.querySelector('.more-detail .price');
 
     product.total = product.quantity * product.price;
-    priceTag.innerHTML = product.total;
+}
+
+
+
+openCheckoutTab();
+function openCheckoutTab(){
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    const checkoutTag = document.querySelector('.checkout');
+    const checkoutCloseBtn = document.querySelector('.checkout .close-btn');
+    checkoutBtn.addEventListener('click', () => {
+        conditionalCheckoutTab(checkoutTag);
+    });
+    checkoutCloseBtn.addEventListener('click', () => {
+        conditionalCheckoutTab(checkoutTag);
+    })
+};
+
+
+function conditionalCheckoutTab(checkoutTag){
+    if(!checkoutTag.matches('.open')){
+        checkoutTag.classList.add('open');
+    } else{
+        checkoutTag.classList.remove('open');
+    }
 }
 
 

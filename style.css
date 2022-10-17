@@ -4,6 +4,8 @@
     --color-background: #d9d9d9;
     --color-1: burlywood;
     --color-2: #2b2323;
+    --color-3: #463939;
+    --color-4: #589f77;
 }
 
 html{
@@ -258,6 +260,109 @@ main.height-adjust{
 .more-detail .close-btn:hover{
     color: gray;
 }
+
+
+
+
+
+
+.checkout{
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: white;
+    width: 17rem;
+    padding: 3rem 1.5rem;
+    box-shadow: 0px 0px 10px 1px #00000030;
+    transform: translateX(100%);
+}
+.checkout.open{
+    transform: translateX(0);
+}
+.checkout h2{
+    color: var(--color-2);
+    padding: 0;
+    margin:  0 0 .7rem;
+}
+.checkout .total-price{
+    color: var(--color-2);
+    margin: 1rem 0;
+    padding: .3rem 0;
+    border-top: 1px solid #d0d0d0;
+}
+.checkout .total-price span{
+    color: #589f77;
+}
+.checkout button{
+    display: block;
+    cursor: pointer;
+    background: var(--color-2);
+    color: white;
+    padding: 1rem 2rem;
+    margin: .7rem auto;
+}
+.checkout button:hover{
+    background: var(--color-3);
+    box-shadow: 0px 0px 7px 0px #0000005f;
+}
+.checkout .close-btn{
+    position: absolute;
+    left: .5rem;
+    top: -.7rem;
+    background: transparent;
+    color: #a5a5a5;
+    font-size: 2rem;
+    padding: 0;
+}
+.checkout .close-btn:hover{
+    background: transparent;
+    box-shadow: none;
+    color: var(--color-2);
+}
+
+
+
+
+
+/*CHECKOUT ITEM*/
+.checkout-product{
+    flex-grow: 9;
+    padding: 0 .5rem 1rem;
+    border: 1px solid #e9e9e9;
+    overflow: hidden;
+}
+.checkout-product h3{
+    color: var(--color-2);
+    margin: .5rem 0;
+}
+.checkout-product img{
+    float: left;
+    width: 90px;
+    margin-right: .5rem;
+}
+.checkout-product .product-price{
+    font-size: .9rem;
+    color: var(--color-2);
+    font-weight: bold;
+}
+.checkout-product .product-price span{
+    color: var(--color-4);
+}
+.checkout-product .quantity{
+    display: inline;
+    width: 90px;
+    border: 1px solid #eaeaea;
+    font-size: 1rem;
+    padding: .5rem 0 .5rem .5rem;
+    border-radius: 4px;
+}
+.checkout-product .quantity:focus{
+    outline: none;
+    box-shadow: 0px 0px 7px 1px #00d0ff6a;
+}
+
+
 
 
 
