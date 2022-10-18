@@ -3,6 +3,7 @@ import products from "./Products.js"
 
 const home = document.querySelectorAll('main section');
 const shopPage = document.querySelector('.shop-content');
+const shopItems = products;
 
 if(home[0] && home[1]){
     renderSection1News();
@@ -47,7 +48,7 @@ if(shopPage){
 }
 function renderShopProducts(){
     document.querySelector('.shop-content')
-    .innerHTML = products.map(product => {
+    .innerHTML = shopItems.map(product => {
         return `
         <div class="product" id="${product.id}">
             <img src="${product.img[0]}" alt="${product.name}">
@@ -61,23 +62,29 @@ function renderShopProducts(){
         `;
     }).join('');
     
+    // OPEN MORE DETAILS OR ADD ITEM TO CART
     document.querySelectorAll('.shop-content .product').forEach(productTag => {
-        productTag.addEventListener('click', () => {
-            const object = convertTagIntoObject(productTag)
-            openDetails(object);
+        productTag.addEventListener('click', (event) => {
+            if(event.target.matches('.icon')){
+                addItemsToCheckout(productTag);
+            } else{
+                const object = findIndexOf(productTag)
+                openDetails(object); 
+            }
         });
-    });
-    addItemsToCheckout();
+    });    
 };
 
-function convertTagIntoObject(productTag){
-    return products.find(product => product.id == productTag.id);
+function findIndexOf(productTag){
+    const object = shopItems.find(product => product.id == productTag.id);
+    return shopItems.indexOf(object);
 }
 
 function openDetails(product){
     const tag = document.querySelector('.more-detail');
 
     conditionalClassTag(tag);
+    tag.id = product.id;
 
     tag.innerHTML = `
     <div class="flex-column">
@@ -94,7 +101,7 @@ function openDetails(product){
         <h2 class="title">${product.name}</h2>
         <p class="price">$${Number(product.price).toFixed(2)}</p>
         <input type="number" class="quantity" min="1" value="${product.quantity}">
-        <button>Add to Cart</button>
+        <button class="add-to-checkout">Add to Cart</button>
         <h3 class="details">Product Details</h3>
         <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?</p>
         <button class="close-btn">&times;</button>
@@ -109,15 +116,25 @@ function openDetails(product){
     const mainImage = document.querySelectorAll('.more-detail img')[0];
     const images = document.querySelectorAll('.more-detail .flex-row img');
 
-    // changes the main image
+    // CHANGES THE MAIN IMAGE BY CLICK
     images.forEach(image => {
         image.addEventListener('click', () => {
             mainImage.setAttribute('src', image.getAttribute('src'));
         });
     });
 
-    // quantity controller
-    quantityController(product);
+    // QUANTITY CONTROLLER
+    const quantityTag = document.querySelector('.more-detail .quantity');
+    const addToCheckoutBtn = document.querySelector('.add-to-checkout');
+
+    quantityTag.addEventListener('change', () => {
+        quantityController(product, quantityTag);
+    });
+
+    // ADD PRODUCT INTO CART FROM DETAILS PAGE
+    addToCheckoutBtn.addEventListener('click', () => {
+        addItemsToCheckout(tag);
+    });
 };
 
 function conditionalClassTag(tag){
@@ -135,34 +152,59 @@ function conditionalClassTag(tag){
 };
 
 
-function addItemsToCheckout(){
-    const productsTag = document.querySelectorAll('.shop-content .product');
+function addItemsToCheckout(productTag){
     const checkoutBox = document.querySelector('.checkout .checkout-items');
+    const index = findIndexOf(productTag);
 
-    productsTag.forEach(product => {
-        product.addEventListener('click', () => {
-            const productObject = convertTagIntoObject(product);
-            checkoutBox.innerHTML = getCheckoutItemHtml(productObject)
-            checkoutController();
-        });
-    });
+    if(searchForDuplicates(productTag)){
+        console.log('Already in the cart')
+        // INSERT POPUP HERE
+    } else{
+        checkoutBox.innerHTML += getCheckoutItemHtml(shopItems[index]);
+    }
+    // LISTENING FOR NEW QUANTITIES CHANGES
+    checkoutController();
 };
+
+
+function searchForDuplicates(productTag){
+    const checkoutProducts = document.querySelectorAll('.checkout-product');
+
+    for(let element of checkoutProducts){
+        if(productTag.id === element.id){
+            return true;
+        }
+    }
+    return false;
+};
+
+
 
 function checkoutController(){
     const checkoutProducts = document.querySelectorAll('.checkout-product');
 
     checkoutProducts.forEach(product => {
-        const productObject = convertTagIntoObject(product);
-        console.log(product, productObject)
+        const index = findIndexOf(product);
         product.addEventListener('change', (e) => {
             if(e.target.matches('.quantity')){
-                quantityController(productObject);
+                quantityController(shopItems[index], e.target);
             };
         });
     });
 };
 
-function getCheckoutItemHtml(productObject, tag){
+
+function refreshTotalPrice(){
+    const quantityTag = document.querySelectorAll(".checkout-product .quantity");
+    let totalPrice = 0;
+    let quantityValues = 0;
+
+    quantityTag.forEach(element => {
+        quantityValues += element.value;
+    });
+};
+
+function getCheckoutItemHtml(productObject){
     return `
         <div class="checkout-product" id="${productObject.id}">
             <h3>${productObject.name}</h3>
@@ -171,35 +213,21 @@ function getCheckoutItemHtml(productObject, tag){
             <p class="product-price">Price: <span>$${Number(productObject.price).toFixed(2)}</span></p>
         </div>
     `;
-}
-
-
-
-function quantityController(product){
-    const productTag = document.querySelector('.more-detail');
-    const quantityTag = document.querySelectorAll('.quantity');
-
-    quantityTag.forEach(tag => {
-        console.log(tag)
-        tag.addEventListener('change', (e) => {
-            if(quantityTag.value == 0){
-                quantityTag.value = 1;
-            } else{
-                product.quantity = e.target.value;
-                refreshProductPrice(product);
-                console.log(product.quantity)
-            };
-        });
-    });
 };
 
 
 
-function refreshProductPrice(product){
-    const priceTag = document.querySelector('.more-detail .price');
-
-    product.total = product.quantity * product.price;
-}
+function quantityController(product, quantityTag){
+    const index = shopItems.indexOf(product);
+    
+    if(quantityTag.value == 0){
+        quantityTag.value = 1;
+        shopItems[index].quantity = quantityTag.value;
+    } else{
+        shopItems[index].quantity = quantityTag.value;
+        console.log(index, shopItems[index])
+    };
+};
 
 
 
@@ -213,7 +241,7 @@ function openCheckoutTab(){
     });
     checkoutCloseBtn.addEventListener('click', () => {
         conditionalCheckoutTab(checkoutTag);
-    })
+    });
 };
 
 
@@ -222,8 +250,8 @@ function conditionalCheckoutTab(checkoutTag){
         checkoutTag.classList.add('open');
     } else{
         checkoutTag.classList.remove('open');
-    }
-}
+    };
+};
 
 
 
