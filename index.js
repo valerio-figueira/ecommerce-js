@@ -68,16 +68,15 @@ function renderShopProducts(){
             if(event.target.matches('.icon')){
                 addItemsToCheckout(productTag);
             } else{
-                const object = findIndexOf(productTag)
+                const object = convertTagIntoObject(productTag)
                 openDetails(object); 
             }
         });
-    });    
+    });
 };
 
-function findIndexOf(productTag){
-    const object = shopItems.find(product => product.id == productTag.id);
-    return shopItems.indexOf(object);
+function convertTagIntoObject(productTag){
+    return shopItems.find(product => product.id == productTag.id);
 }
 
 function openDetails(product){
@@ -103,7 +102,7 @@ function openDetails(product){
         <input type="number" class="quantity" min="1" value="${product.quantity}">
         <button class="add-to-checkout">Add to Cart</button>
         <h3 class="details">Product Details</h3>
-        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?</p>
+        <p class="description">${product.description}</p>
         <button class="close-btn">&times;</button>
     </div>
     `;
@@ -137,33 +136,59 @@ function openDetails(product){
     });
 };
 
+
+// OPEN MORE DETAILS TAB
 function conditionalClassTag(tag){
     const mainTag = document.querySelector('main');
-
-    if(tag.matches('.closed')){
-        tag.classList.remove('closed');
+    const checkoutTag = document.querySelector('.checkout');
+    if(!tag.matches('.absolute') && !checkoutTag.matches('.open')){
         tag.classList.add('absolute');
         mainTag.classList.add('height-adjust');
     }else{
-        tag.classList.add('closed');
         tag.classList.remove('absolute');
         mainTag.classList.remove('height-adjust');
     };
 };
 
+openCheckoutTab();
+function openCheckoutTab(){
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    const checkoutTag = document.querySelector('.checkout');
+    const checkoutCloseBtn = document.querySelector('.checkout .close-btn');
+    checkoutBtn.addEventListener('click', () => {
+        conditionalCheckoutTab(checkoutTag);
+    });
+    checkoutCloseBtn.addEventListener('click', () => {
+        conditionalCheckoutTab(checkoutTag);
+    });
+};
+
+function conditionalCheckoutTab(checkoutTag){
+    const moreDetailTab = document.querySelector('.more-detail');
+    if(!checkoutTag.matches('.open') && !moreDetailTab.matches('.absolute')){
+        checkoutTag.classList.add('open');
+    } else{
+        checkoutTag.classList.remove('open');
+    };
+};
+
+
+
+
 
 function addItemsToCheckout(productTag){
     const checkoutBox = document.querySelector('.checkout .checkout-items');
-    const index = findIndexOf(productTag);
+    const productObject = convertTagIntoObject(productTag);
+    const index = shopItems.indexOf(productObject);
 
     if(searchForDuplicates(productTag)){
         console.log('Already in the cart')
         // INSERT POPUP HERE
     } else{
         checkoutBox.innerHTML += getCheckoutItemHtml(shopItems[index]);
-    }
+    };
     // LISTENING FOR NEW QUANTITIES CHANGES
-    checkoutController();
+    // checkoutController();
 };
 
 
@@ -179,18 +204,33 @@ function searchForDuplicates(productTag){
 };
 
 
-
+// LISTENING FOR NEW QUANTITIES CHANGES
+checkoutController();
 function checkoutController(){
     const checkoutProducts = document.querySelectorAll('.checkout-product');
 
     checkoutProducts.forEach(product => {
-        const index = findIndexOf(product);
+        const productObject = convertTagIntoObject(product);
         product.addEventListener('change', (e) => {
             if(e.target.matches('.quantity')){
-                quantityController(shopItems[index], e.target);
+                quantityController(productObject, e.target);
             };
         });
     });
+};
+
+
+
+function quantityController(productObject, quantityTag){
+    const index = shopItems.indexOf(productObject);
+    
+    if(quantityTag.value == 0){
+        quantityTag.value = 1;
+        shopItems[index].quantity = quantityTag.value;
+    } else{
+        shopItems[index].quantity = quantityTag.value;
+        console.log(index, shopItems[index])
+    };
 };
 
 
@@ -217,41 +257,11 @@ function getCheckoutItemHtml(productObject){
 
 
 
-function quantityController(product, quantityTag){
-    const index = shopItems.indexOf(product);
-    
-    if(quantityTag.value == 0){
-        quantityTag.value = 1;
-        shopItems[index].quantity = quantityTag.value;
-    } else{
-        shopItems[index].quantity = quantityTag.value;
-        console.log(index, shopItems[index])
-    };
-};
 
 
 
-openCheckoutTab();
-function openCheckoutTab(){
-    const checkoutBtn = document.querySelector('.checkout-btn');
-    const checkoutTag = document.querySelector('.checkout');
-    const checkoutCloseBtn = document.querySelector('.checkout .close-btn');
-    checkoutBtn.addEventListener('click', () => {
-        conditionalCheckoutTab(checkoutTag);
-    });
-    checkoutCloseBtn.addEventListener('click', () => {
-        conditionalCheckoutTab(checkoutTag);
-    });
-};
 
 
-function conditionalCheckoutTab(checkoutTag){
-    if(!checkoutTag.matches('.open')){
-        checkoutTag.classList.add('open');
-    } else{
-        checkoutTag.classList.remove('open');
-    };
-};
 
 
 
