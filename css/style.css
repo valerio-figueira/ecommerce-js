@@ -57,7 +57,7 @@ header a:hover{
 }
 
 body{
-    min-width: 850px;
+    min-width: 360px;
 }
 main{
     padding: 1.5rem 7%;
@@ -214,7 +214,7 @@ main.height-adjust{
 }
 .more-detail .flex-row img{
     cursor: pointer;
-    height: 80px;
+    height: 60px;
     margin: .5rem .2rem;
 }
 .more-detail .box{
@@ -450,7 +450,7 @@ aside h2, aside p{
     padding: .3rem;
 }
 aside form{
-    display: flex;    
+    display: flex;
     padding-left: 2rem;
 }
 aside form input{
@@ -460,7 +460,8 @@ aside form input{
     padding: 0rem .5rem;
     border-radius: 4px 0 0 4px;
 }
-aside form button{
+aside form .sign-up{
+    flex-basis: 100px;
     height: 3rem;
     font-weight: bold;
     background: darkcyan;
@@ -482,12 +483,14 @@ aside form input:focus{
 
 footer.flex-row{
     display: flex;
+    align-items: flex-start;
     padding: 2rem 7%;
 }
 footer .box{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     padding-right: 1rem;
     color: var(--color-2);
     flex-basis: 100%;
@@ -529,8 +532,8 @@ footer .box .flex-row a:hover{
     box-shadow: 0px 0px 5px 0px #0000004b;
 }
 footer .box img.payment{
-    width: 60%;
-    padding: 1rem 0;
+    width: 100%;
+    padding: 1rem 2rem;
 }
 
 
@@ -540,8 +543,103 @@ footer .box img.payment{
 
 
 
-
 /* RESPONSIVE */
-@media screen and (min-width: 850px) {
+@media screen and (max-width: 950px){
+    aside h2{
+        font-size: 1.3rem;
+    }
+    aside p{
+        color: white;
+        padding: .3rem;
+        font-size: .8rem;
+    }
+    footer .box img.payment{
+        width: 100%;
+        padding: 1rem;
+    }
+}
+@media screen and (max-width: 850px) {
+    aside.flex-row{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    aside.flex-row h3, aside.flex-row p{
+        padding: 1rem 0;
+    }
+    footer .box .payment{
+        padding: 0;
+    }
+    footer .box .flex-row{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 790px){
+    .more-detail{
+        padding: 3rem 0;
+    }
+    .more-detail img{
+        cursor: pointer;
+        height: 50vh;
+    }
+    .more-detail .flex-row img{
+        cursor: pointer;
+        height: 60px;
+        margin: .5rem .2rem;
+    }
+}
+@media screen and (max-width: 650px){
+    .more-detail img{
+        cursor: pointer;
+        height: 40vh;
+    }
+    .more-detail .flex-row {
 
+    }
+    .more-detail .flex-row img{
+        cursor: pointer;
+        height: 50px;
+        margin: .3rem .2rem;
+    }
+}
+@media screen and (max-width: 690px){
+    footer.flex-row{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    footer .box img.payment{
+        padding: 1rem;
+    }
+}
+@media screen and (max-width: 630px) {
+    footer .box{
+        padding: .5rem 1rem;
+    }
+    footer .box a, footer .box p{
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .shop-content.grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    aside.flex-row input, aside.flex-row button{
+        width: 100%;
+        height: 2.5rem;
+        font-size: 1rem;
+        padding: 0rem .1rem;
+    }
+    footer .box a, footer .box p{
+        font-size: 1rem;
+    }
+    footer .box img.payment{
+        width: 250px;
+        padding: 1rem 0;
+    }
+    footer .box .flex-row{
+        flex-direction: row;
+    }
 }

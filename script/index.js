@@ -30,7 +30,8 @@ function openProductDetailsOrAddToCheckout(){
                 addItemsToCheckout(productTag);
             } else{
                 const object = convertTagIntoObject(productTag)
-                openDetails(object); 
+                openDetails(object);
+                window.open('#header', '_self');
             };
         });
     });
@@ -211,11 +212,13 @@ function openCheckoutTab(){
 };
 
 function conditionalCheckoutTab(checkoutTag){
+    const mainTag = document.querySelector('main');
     const moreDetailTab = document.querySelector('.more-detail');
     if(!checkoutTag.matches('.open')){
         checkoutTag.classList.add('open');
         if(moreDetailTab.matches('.absolute')){
             moreDetailTab.classList.remove('absolute');
+            mainTag.classList.remove('height-adjust');
         };
     } else{
         checkoutTag.classList.remove('open');
