@@ -42,7 +42,7 @@ const products = [
             "imgs/products/f4.jpg",
             "imgs/products/f5.jpg",
             "imgs/products/f6.jpg",
-            "imgs/products/f7.jpg"
+            "imgs/products/f1.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -58,8 +58,8 @@ const products = [
             "imgs/products/f4.jpg",
             "imgs/products/f5.jpg",
             "imgs/products/f6.jpg",
-            "imgs/products/f7.jpg",
-            "imgs/products/f8.jpg"
+            "imgs/products/f1.jpg",
+            "imgs/products/f2.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -74,9 +74,9 @@ const products = [
         img: [
             "imgs/products/f5.jpg",
             "imgs/products/f6.jpg",
-            "imgs/products/f7.jpg",
-            "imgs/products/f8.jpg",
-            "imgs/products/f1.jpg"
+            "imgs/products/f1.jpg",
+            "imgs/products/f2.jpg",
+            "imgs/products/f3.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -90,10 +90,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/f6.jpg",
-            "imgs/products/f7.jpg",
-            "imgs/products/f8.jpg",
             "imgs/products/f1.jpg",
-            "imgs/products/f2.jpg"
+            "imgs/products/f2.jpg",
+            "imgs/products/f3.jpg",
+            "imgs/products/f4.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -107,10 +107,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/f7.jpg",
-            "imgs/products/f8.jpg",
-            "imgs/products/f1.jpg",
-            "imgs/products/f2.jpg",
-            "imgs/products/f3.jpg"
+            "imgs/products/f7.jpg",
+            "imgs/products/f7.jpg",
+            "imgs/products/f7.jpg",
+            "imgs/products/f7.jpg",
         ],
         price: 78,
         quantity: 1,
@@ -141,10 +141,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n1.jpg",
-            "imgs/products/n2.jpg",
-            "imgs/products/n3.jpg",
-            "imgs/products/n4.jpg",
-            "imgs/products/n5.jpg"
+            "imgs/products/n1.jpg",
+            "imgs/products/n1.jpg",
+            "imgs/products/n1.jpg",
+            "imgs/products/n1.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -158,10 +158,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n2.jpg",
-            "imgs/products/n3.jpg",
-            "imgs/products/n4.jpg",
-            "imgs/products/n5.jpg",
-            "imgs/products/n6.jpg"
+            "imgs/products/n2.jpg",
+            "imgs/products/n2.jpg",
+            "imgs/products/n2.jpg",
+            "imgs/products/n2.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -175,10 +175,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n3.jpg",
-            "imgs/products/n4.jpg",
-            "imgs/products/n5.jpg",
-            "imgs/products/n6.jpg",
-            "imgs/products/n7.jpg"
+            "imgs/products/n3.jpg",
+            "imgs/products/n3.jpg",
+            "imgs/products/n3.jpg",
+            "imgs/products/n3.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -192,10 +192,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n4.jpg",
-            "imgs/products/n5.jpg",
-            "imgs/products/n6.jpg",
-            "imgs/products/n7.jpg",
-            "imgs/products/n8.jpg"
+            "imgs/products/n4.jpg",
+            "imgs/products/n4.jpg",
+            "imgs/products/n4.jpg",
+            "imgs/products/n4.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -209,10 +209,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n5.jpg",
-            "imgs/products/n6.jpg",
-            "imgs/products/n7.jpg",
-            "imgs/products/n8.jpg",
-            "imgs/products/n1.jpg"
+            "imgs/products/n5.jpg",
+            "imgs/products/n5.jpg",
+            "imgs/products/n5.jpg",
+            "imgs/products/n5.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -226,10 +226,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n6.jpg",
-            "imgs/products/n7.jpg",
-            "imgs/products/n8.jpg",
-            "imgs/products/n1.jpg",
-            "imgs/products/n2.jpg"
+            "imgs/products/n6.jpg",
+            "imgs/products/n6.jpg",
+            "imgs/products/n6.jpg",
+            "imgs/products/n6.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -243,10 +243,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n7.jpg",
-            "imgs/products/n8.jpg",
-            "imgs/products/n1.jpg",
-            "imgs/products/n2.jpg",
-            "imgs/products/n3.jpg"
+            "imgs/products/n7.jpg",
+            "imgs/products/n7.jpg",
+            "imgs/products/n7.jpg",
+            "imgs/products/n7.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -260,10 +260,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n8.jpg",
-            "imgs/products/n1.jpg",
-            "imgs/products/n2.jpg",
-            "imgs/products/n3.jpg",
-            "imgs/products/n4.jpg"
+            "imgs/products/n8.jpg",
+            "imgs/products/n8.jpg",
+            "imgs/products/n8.jpg",
+            "imgs/products/n8.jpg"
         ],
         price: 78,
         quantity: 1,

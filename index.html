@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecommerce</title>
     <script src="https://kit.fontawesome.com/41d6a358ff.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer type="module"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./script/index.js" defer type="module"></script>
 </head>
 <body>
     <header>
@@ -19,7 +19,7 @@
             <a href="./shop.html">Shop</a>
             <a href="#">Blog</a>
             <a href="#">About Us</a>
-            <a href="#"><span class="fa-solid fa-bag-shopping icon"></span></a>
+            <button class="checkout-btn fa-solid fa-bag-shopping"></button>
         </nav>
     </header>
 
@@ -37,6 +37,16 @@
         <section class="section-1"></section>
         <section class="section-2"></section>
     </main>
+
+    <aside class="checkout">
+        <h2>Checkout</h2>
+        <div class="checkout-items"></div>
+        <div class="checkout-info">
+            <h3 class="total-price">Total: <span>R$ 0</span></h3>
+        </div>
+        <button>Buy</button>
+        <button class="close-btn">&times;</button>
+    </aside>
 
     <aside class="flex-row">
         <div>

@@ -45,9 +45,16 @@ header a:hover{
     align-items: center;
     gap: .7rem;
 }
-.navbar .icon{
+.navbar .checkout-btn{
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--color-background);
     font-size: 1.3rem;
 }
+.navbar .checkout-btn:hover{
+    color: var(--color-1);
+}
+
 
 main{
     padding: 1.5rem 7%;
@@ -276,6 +283,7 @@ main.height-adjust{
     padding: 3rem 1.5rem;
     box-shadow: 0px 0px 10px 1px #00000030;
     transform: translateX(100%);
+    overflow-y: scroll;
 }
 .checkout.open{
     transform: translateX(0);
@@ -327,6 +335,7 @@ main.height-adjust{
 
 /*CHECKOUT ITEM*/
 .checkout-product{
+    position: relative;
     flex-grow: 9;
     padding: 0 .5rem 1rem;
     margin-bottom: .5rem;
@@ -362,8 +371,21 @@ main.height-adjust{
     outline: none;
     box-shadow: 0px 0px 7px 1px #00d0ff6a;
 }
-
-
+.checkout-product .remove-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    color: #aaaaaa;
+    font-size: 1.5rem;
+    padding: 0 .2rem;
+    margin: 0;
+}
+.checkout-product .remove-btn:hover{
+    color: var(--color-2);
+    background: transparent;
+    box-shadow: none;
+}
 
 
 
