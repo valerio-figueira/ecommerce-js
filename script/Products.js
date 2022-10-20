@@ -1,126 +1,116 @@
 const products = [
     {
         id: 1,
-        name: "Lorem ipsum dolor",
+        name: "Flamininus T-Shirt",
         label: "brand-name",
         img: [
             "imgs/products/f1.jpg",
-            "imgs/products/f2.jpg",
             "imgs/products/f3.jpg",
             "imgs/products/f4.jpg",
             "imgs/products/f5.jpg"
         ],
-        price: 78,
+        price: 89,
         quantity: 1,
-        total: 78,
+        total: 89,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
     {
         id: 2,
-        name: "Lorem ipsum dolor",
+        name: "Lorem T-Shirt",
         label: "brand-name",
         img: [
             "imgs/products/f2.jpg",
-            "imgs/products/f3.jpg",
             "imgs/products/f4.jpg",
             "imgs/products/f5.jpg",
             "imgs/products/f6.jpg"
         ],
-        price: 78,
+        price: 72,
         quantity: 1,
-        total: 78,
+        total: 72,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
     {
         id: 3,
-        name: "Lorem ipsum dolor",
+        name: "Rose T-Shirt",
         label: "brand-name",
         img: [
             "imgs/products/f3.jpg",
-            "imgs/products/f4.jpg",
             "imgs/products/f5.jpg",
             "imgs/products/f6.jpg",
             "imgs/products/f1.jpg"
         ],
-        price: 78,
+        price: 98,
         quantity: 1,
-        total: 78,
+        total: 98,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
     {
         id: 4,
-        name: "Lorem ipsum dolor",
+        name: "White T-Shirt",
         label: "brand-name",
         img: [
             "imgs/products/f4.jpg",
-            "imgs/products/f5.jpg",
             "imgs/products/f6.jpg",
             "imgs/products/f1.jpg",
             "imgs/products/f2.jpg"
         ],
-        price: 78,
+        price: 94,
         quantity: 1,
-        total: 78,
+        total: 94,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
     {
         id: 5,
-        name: "Lorem ipsum dolor",
+        name: "Midnight Blue T-Shirt",
         label: "brand-name",
         img: [
             "imgs/products/f5.jpg",
-            "imgs/products/f6.jpg",
             "imgs/products/f1.jpg",
             "imgs/products/f2.jpg",
             "imgs/products/f3.jpg"
         ],
-        price: 78,
+        price: 104,
         quantity: 1,
-        total: 78,
+        total: 104,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
     {
         id: 6,
-        name: "Lorem ipsum dolor",
+        name: "Casual Shirt",
         label: "brand-name",
         img: [
             "imgs/products/f6.jpg",
-            "imgs/products/f1.jpg",
             "imgs/products/f2.jpg",
             "imgs/products/f3.jpg",
             "imgs/products/f4.jpg"
         ],
-        price: 78,
+        price: 69,
         quantity: 1,
-        total: 78,
+        total: 69,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
     {
         id: 7,
-        name: "Lorem ipsum dolor",
+        name: "Lorem Pants",
         label: "brand-name",
         img: [
             "imgs/products/f7.jpg",
-            "imgs/products/f7.jpg",
-            "imgs/products/f7.jpg",
-            "imgs/products/f7.jpg",
-            "imgs/products/f7.jpg",
         ],
-        price: 78,
+        price: 74,
         quantity: 1,
-        total: 78,
+        total: 74,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
     {
         id: 8,
-        name: "Lorem ipsum dolor",
+        name: "Lorem Casual Shirt",
         label: "brand-name",
         img: [
             "imgs/products/f8.jpg",
@@ -129,9 +119,9 @@ const products = [
             "imgs/products/f3.jpg",
             "imgs/products/f4.jpg"
         ],
-        price: 78,
+        price: 86,
         quantity: 1,
-        total: 78,
+        total: 86,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
@@ -141,14 +131,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n1.jpg",
-            "imgs/products/n1.jpg",
-            "imgs/products/n1.jpg",
-            "imgs/products/n1.jpg",
-            "imgs/products/n1.jpg"
         ],
-        price: 78,
+        price: 69,
         quantity: 1,
-        total: 78,
+        total: 69,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
@@ -158,10 +144,6 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n2.jpg",
-            "imgs/products/n2.jpg",
-            "imgs/products/n2.jpg",
-            "imgs/products/n2.jpg",
-            "imgs/products/n2.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -171,18 +153,14 @@ const products = [
     },
     {
         id: 11,
-        name: "Lorem ipsum dolor",
+        name: "White Casual Shirt",
         label: "brand-name",
         img: [
             "imgs/products/n3.jpg",
-            "imgs/products/n3.jpg",
-            "imgs/products/n3.jpg",
-            "imgs/products/n3.jpg",
-            "imgs/products/n3.jpg"
         ],
-        price: 78,
+        price: 82,
         quantity: 1,
-        total: 78,
+        total: 82,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
@@ -192,14 +170,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n4.jpg",
-            "imgs/products/n4.jpg",
-            "imgs/products/n4.jpg",
-            "imgs/products/n4.jpg",
-            "imgs/products/n4.jpg"
         ],
-        price: 78,
+        price: 72,
         quantity: 1,
-        total: 78,
+        total: 72,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
@@ -209,14 +183,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n5.jpg",
-            "imgs/products/n5.jpg",
-            "imgs/products/n5.jpg",
-            "imgs/products/n5.jpg",
-            "imgs/products/n5.jpg"
         ],
-        price: 78,
+        price: 76,
         quantity: 1,
-        total: 78,
+        total: 76,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
@@ -226,10 +196,6 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n6.jpg",
-            "imgs/products/n6.jpg",
-            "imgs/products/n6.jpg",
-            "imgs/products/n6.jpg",
-            "imgs/products/n6.jpg"
         ],
         price: 78,
         quantity: 1,
@@ -243,14 +209,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n7.jpg",
-            "imgs/products/n7.jpg",
-            "imgs/products/n7.jpg",
-            "imgs/products/n7.jpg",
-            "imgs/products/n7.jpg"
         ],
-        price: 78,
+        price: 67,
         quantity: 1,
-        total: 78,
+        total: 67,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },
@@ -260,14 +222,10 @@ const products = [
         label: "brand-name",
         img: [
             "imgs/products/n8.jpg",
-            "imgs/products/n8.jpg",
-            "imgs/products/n8.jpg",
-            "imgs/products/n8.jpg",
-            "imgs/products/n8.jpg"
         ],
-        price: 78,
+        price: 96,
         quantity: 1,
-        total: 78,
+        total: 96,
         url: "#",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nam dolore saepe facere consequuntur porro maxime harum vitae, soluta corrupti in, id quidem ab architecto impedit error blanditiis molestias eligendi?"
     },

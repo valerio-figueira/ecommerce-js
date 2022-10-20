@@ -2,12 +2,7 @@ export function renderProductDetailsHtml(product){
     return `
     <div class="flex-column">
         <img src="${product.img[0]}" alt="${product.name}">
-        <div class="flex-row">
-            <img src="${product.img[1]}" alt="${product.name}">
-            <img src="${product.img[2]}" alt="${product.name}">
-            <img src="${product.img[3]}" alt="${product.name}">
-            <img src="${product.img[4]}" alt="${product.name}">
-        </div>
+        <div class="flex-row">${renderImages(product)}</div>
     </div>
     <div class="box">
         <p class="label">${product.label}</p>
@@ -22,6 +17,26 @@ export function renderProductDetailsHtml(product){
     `;
 };
 
+function renderImages(product){
+    if(product.img.length > 1){
+        return createImageTag(product).map(element => {
+            return element.outerHTML;
+        }).join('');
+    };
+    return ``;
+};
+
+function createImageTag(product){
+    const imagesElements = [];
+    for(let image of product.img){
+        const createElement = document.createElement('img');
+        createElement.src = image;
+        createElement.alt = product.name;
+        imagesElements.push(createElement);
+    };
+    console.log(imagesElements)
+    return imagesElements;
+};
 
 
 

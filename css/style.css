@@ -23,6 +23,7 @@ html{
 }
 
 header{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,9 +52,53 @@ header a:hover{
     background-color: transparent;
     color: var(--color-background);
     font-size: 1.3rem;
+    padding: .5rem;
 }
 .navbar .checkout-btn:hover{
+    color: var(--color-1);    
+}
+.navbar .search-btn{
+    cursor: pointer;
+    background: transparent;
+    color: var(--color-background);
+    padding: .5rem;
+    font-size: 1rem;
+}
+.navbar .search-btn:hover{
     color: var(--color-1);
+}
+body{
+    overflow-x: hidden;
+}
+header .search-bar{
+    position: absolute;
+    right: 0;
+    bottom: -100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    transform: translateX(100%);
+}
+header .search-bar.open{
+    transform: translateX(0);
+}
+header .search-bar input{
+    position: relative;
+    font-size: 1.3rem;
+    padding: .7rem 1rem;
+    margin: 0 1rem;
+    border: 1px solid #4639397a;
+    box-shadow: 0px 0px 10px 1px #0000005e;
+}
+header .search-bar input:focus{
+    outline: none;
+    box-shadow: 0px 0px 10px 2px #0000005e;
+}
+header .search-bar label{
+    color: var(--color-3);
+    position: absolute;
+    z-index: 1001;
+    right: 2rem;
 }
 
 body{
@@ -593,9 +638,6 @@ footer .box img.payment{
     .more-detail img{
         cursor: pointer;
         height: 40vh;
-    }
-    .more-detail .flex-row {
-
     }
     .more-detail .flex-row img{
         cursor: pointer;

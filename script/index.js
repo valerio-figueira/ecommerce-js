@@ -17,7 +17,24 @@ if(home[0] && home[1]){
 if(shopPage){
     renderShopProducts(shopItems);
     openProductDetailsOrAddToCheckout();
+    searchEngine();
 }
+
+function searchEngine(){
+    const searchInput = document.querySelector('.search-bar #search-input');
+
+    searchInput.addEventListener('keyup', event => {
+        console.log(searchInput, event.target.value)
+        const enteredInput = String(event.target.value).toLowerCase();
+        const filteredItems = shopItems.filter(item => {
+            const itemRenamed = item.name.toLowerCase();
+            return itemRenamed.includes(enteredInput);
+        })
+        console.log(filteredItems)
+        renderShopProducts(filteredItems);
+        openProductDetailsOrAddToCheckout();
+    });
+};
 
 
 
@@ -226,6 +243,29 @@ function conditionalCheckoutTab(checkoutTag){
 };
 
 
+
+// OPEN SEARCH BAR
+openSearchBar();
+function openSearchBar(){
+    const searchBtn = document.querySelector('.navbar .search-btn');
+    const searchBar = document.querySelector('header .search-bar');
+    const searchInput = document.querySelector('header #search-input');
+
+    searchBtn.addEventListener('click', () => {
+        if(!searchBar.matches('.open')){
+            setInterval(() => searchInput.focus(), 350);
+            searchBar.classList.add('open');            
+            document.addEventListener('click', event =>{
+                if(!event.target.matches('.search-btn') && !event.target.matches('#search-input')){
+                    searchBar.classList.remove('open');
+                };
+            });
+        } else{
+            searchBar.classList.remove('open');
+            searchInput.focus();
+        };
+    });
+};
 
 
 
