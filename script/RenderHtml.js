@@ -34,7 +34,6 @@ function createImageTag(product){
         createElement.alt = product.name;
         imagesElements.push(createElement);
     };
-    console.log(imagesElements)
     return imagesElements;
 };
 
