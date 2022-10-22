@@ -252,7 +252,7 @@ function openSearchBar(){
 
     searchBtn.addEventListener('click', () => {
         if(!searchBar.matches('.open')){
-            setInterval(() => {searchInput.focus()}, 350);
+            //setInterval(() => searchInput.focus(), 350);
             searchBar.classList.add('open');            
             document.addEventListener('click', event =>{
                 if(!event.target.matches('.search-btn') && !event.target.matches('#search-input')){
@@ -261,7 +261,7 @@ function openSearchBar(){
             });
         } else{
             searchBar.classList.remove('open');
-            document.activeElement.blur();
+            //document.activeElement.blur();
         };
     });
 };
