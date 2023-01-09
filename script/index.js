@@ -7,6 +7,48 @@ const shopPage = document.querySelector('.shop-content');
 const shopItems = products;
 
 
+// Cookie
+function setCookie(cname, cvalue, exdays){
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+
+    console.log(d);
+
+    let expires = "expires=" + d.toUTCString();
+    
+    console.log(expires);
+
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/shop.html; SameSite=None; Secure;";
+}
+
+function getCookie(cname){
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+
+    console.log(ca)
+
+    for(let i = 0; i < ca.length; i++){
+        let c = ca[i];
+        while(c.charAt(0) == " "){
+            c = c.substring(1);
+        }
+
+        if(c.indexOf(name) == 0){
+            console.log(c)
+            return c.substring(name.length, c.length);
+        }
+    }
+
+    return "";
+}
+
+
+const getRandomNumber = Math.floor(Math.random() * 99999999);
+
+setCookie("cookieID", getRandomNumber, 365);
+getCookie("cookieID");
+
 
 if(home[0] && home[1]){
     renderSection1News(section1News);
@@ -19,6 +61,7 @@ if(shopPage){
     openProductDetailsOrAddToCheckout();
     openSearchBar();
     searchEngine();
+    openCheckoutTab();
 }
 
 function searchEngine(){
@@ -88,9 +131,9 @@ function openDetails(product){
     const addToCheckoutBtn = document.querySelector('.add-to-checkout');
 
 
-    /*quantityTag.addEventListener('change', () => {
+    quantityTag.addEventListener('change', () => {
         quantityController(product, quantityTag);
-    });*/
+    });
 
     const plus = document.querySelector(".more-detail .plus");
     const minus = document.querySelector(".more-detail .minus");
@@ -245,7 +288,7 @@ function conditionalClassTag(tag){
     };
 };
 
-openCheckoutTab();
+
 function openCheckoutTab(){
     const checkoutBtn = document.querySelector('.checkout-btn');
     const checkoutTag = document.querySelector('.checkout');
@@ -360,4 +403,3 @@ function footerTag(){
         </div>
     `;
 };
-

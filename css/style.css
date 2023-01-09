@@ -888,11 +888,12 @@ footer .box img.payment{
 
 
 
-        background-color: var(--color-2);
+        background-color: #353131;
         color: var(--color-background);
     }
 
     header .navbar .close-bar{
+        display: block;
         position: absolute;
 
         font-size: 3rem;
@@ -901,7 +902,7 @@ footer .box img.payment{
         cursor: pointer;
         padding: 0;
 
-        top: 0; right: 1rem;
+        top: 0; left: 1rem;
     }
 
     header .navbar .close-bar:hover{
