@@ -8,7 +8,11 @@ export function renderProductDetailsHtml(product){
         <p class="label">${product.label}</p>
         <h2 class="title">${product.name}</h2>
         <p class="price">$${Number(product.price).toFixed(2)}</p>
-        <input type="number" class="quantity" min="1" value="${product.quantity}">
+        <div class="controller">
+            <button class="minus fas fa-minus"></button>
+            <input type="number" class="quantity" min="1" max="999" value="${product.quantity}">
+            <button class="plus fas fa-plus"></button>
+        </div>
         <button class="add-to-checkout">Add to Cart</button>
         <h3 class="details">Product Details</h3>
         <p class="description">${product.description}</p>
@@ -64,7 +68,11 @@ export function renderCheckoutItemHtml(product, index = 0){
         <div class="checkout-product" id="${product.id}">
             <h3>${product.name}</h3>
             <img src="${product.img[index]}" class="">
-            <input type="number" min="1" required="true" class="quantity">
+            <div class="controller">
+                <button class="minus fas fa-minus"></button>
+                <input type="number" class="quantity" min="1" max="999" value="${product.quantity}" required=true>
+                <button class="plus fas fa-plus"></button>
+            </div>
             <p class="product-price">Price: <span>$${Number(product.price).toFixed(2)}</span></p>
             <button class="remove-btn">&times;</button>
         </div>

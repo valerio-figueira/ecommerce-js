@@ -87,9 +87,22 @@ function openDetails(product){
     const quantityTag = document.querySelector('.more-detail .quantity');
     const addToCheckoutBtn = document.querySelector('.add-to-checkout');
 
-    quantityTag.addEventListener('change', () => {
+
+    /*quantityTag.addEventListener('change', () => {
         quantityController(product, quantityTag);
-    });
+    });*/
+
+    const plus = document.querySelector(".more-detail .plus");
+    const minus = document.querySelector(".more-detail .minus");
+
+    minus.addEventListener("click", () => {
+        quantityTag.value -= 1;
+        quantityController(product, quantityTag);
+    })
+    plus.addEventListener("click", () => {
+        quantityTag.value = ++quantityTag.value;
+        quantityController(product, quantityTag);
+    })
 
     // ADD PRODUCT INTO CART FROM DETAILS PAGE
     addToCheckoutBtn.addEventListener('click', () => {
@@ -140,11 +153,28 @@ function checkoutController(){
 
     checkoutProducts.forEach(product => {
         const productObject = convertTagIntoObject(product);
-        const quantityTag = product.children[2];
+        const quantityTag = product.children[2].children[1];
+
+        const minus = product.children[2].children[0];
+        const plus = product.children[2].children[2];
+    
+        
+        minus.addEventListener("click", () => {
+            quantityTag.value -= 1;
+            quantityController(productObject, quantityTag);
+        });
+
+        plus.addEventListener("click", () => {
+            quantityTag.value = ++quantityTag.value;
+            quantityController(productObject, quantityTag);
+        });
+
+
         const index = shopItems.indexOf(productObject);
 
         quantityTag.value = shopItems[index].quantity;
         refreshTotalPrice();
+
         
         product.addEventListener('change', (e) => {
             if(e.target.matches('.quantity')){
@@ -166,7 +196,7 @@ function checkoutController(){
 function quantityController(productObject, quantityTag){
     const index = shopItems.indexOf(productObject);
     
-    if(quantityTag.value == 0){
+    if(quantityTag.value == 0 || quantityTag.value < 1){
         quantityTag.value = 1;
         shopItems[index].quantity = Number(quantityTag.value);
     } else{
@@ -181,14 +211,14 @@ function quantityController(productObject, quantityTag){
 
 function refreshTotalPrice(){
     const checkoutProducts = document.querySelectorAll('.checkout-product');
-    const totalPriceTag = document.querySelector('.checkout .total-price span')
+    const totalPriceTag = document.querySelector('.checkout .total-price span');
     let totalPrice = 0;
 
     checkoutProducts.forEach(product => {
         const object = convertTagIntoObject(product);
         const index = shopItems.indexOf(object);
-        console.log(product.children[2].value)
-        totalPrice += product.children[2].value * shopItems[index].price;
+
+        totalPrice += product.children[2].children[1].value * shopItems[index].price;
     });
 
     totalPriceTag.innerHTML = `$${Number(totalPrice).toFixed(2)}`;
@@ -268,6 +298,29 @@ function openSearchBar(){
 
 
 
+document.querySelector(".mobile-btn")
+.addEventListener("click", () => {
+    const nav = document.querySelector(".navbar");
+
+    if(!nav.matches(".mobile")){
+        nav.classList.add("mobile");
+    } else{
+        nav.classList.remove("mobile");
+    };
+});
+
+document.querySelector(".close-bar").addEventListener("click", () => {
+    const nav = document.querySelector(".navbar");
+
+    if(!nav.matches(".mobile")){
+        nav.classList.add("mobile");
+    } else{
+        nav.classList.remove("mobile");
+    };
+});
+
+
+
 
 
 footerTag()
@@ -307,3 +360,4 @@ function footerTag(){
         </div>
     `;
 };
+
